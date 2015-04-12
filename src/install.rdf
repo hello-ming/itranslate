@@ -4,17 +4,18 @@
 
     <Description about="urn:mozilla:install-manifest">
         <em:id>{aff87fa2-a58e-4edd-b852-0a20203c1e17}</em:id>
-        <em:version>0.9</em:version>
+        <em:version>0.9.1</em:version>
         <em:type>2</em:type>
         <em:optionsURL>chrome://googtrans/content/preferences.xul</em:optionsURL>
 
-        <em:name>gTranslate</em:name>
+        <em:name>iTranslate</em:name>
         <em:description>Translates the selected text via Google Translate.</em:description>
         <em:homepageURL>https://addons.mozilla.org/firefox/addon/918</em:homepageURL>
 
         <em:creator>Pau Tomas</em:creator>
         <em:developer>Pierre Bertet</em:developer>
         <em:developer>Éric Lemoine</em:developer>
+        <em:developer>robert</em:developer>
         <em:translator>Pierre-Henry Pache (lt-LT)</em:translator>
         <em:translator>K-M (ja-JP)</em:translator>
         <em:translator>Dmitry Chirskov (ru)</em:translator>
