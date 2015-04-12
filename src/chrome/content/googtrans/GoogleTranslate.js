@@ -122,19 +122,23 @@ if ("undefined" === typeof(GoogleTranslate)) {
                    onErrorFn(req.statusText);
                    return;
                }
-
+//////////////////////////////////////////////////////////////////////////////////////
                var response = JSON.parse(req.responseText);
 
-               if (!response.sentences) {
-                   onErrorFn(req.responseText);
+               if (!response.symbols || !response.symbols[0].parts) {
+                   onErrorFn('No translation for: ' +'"' + text + '"');
                    return;
                }
 
-               var translatedText = '';
-               for(var i in response.sentences) {
-                   translatedText += response.sentences[i].trans;
+               var translatedText = [];
+               var parts =  response.symbols[0].parts;
+               for(var i=0;i<parts.length;i++) {
+                   translatedText[i] = parts[i].part+ ' ' + parts[i].means.toString();
                }
-               onLoadFn(translatedText, response.src);
+//////////////////////////////////////////////////////////////////////////////////////
+    
+               //onLoadFn(translatedText, response.src);
+               onLoadFn(translatedText, "en");
            }), false);
 
            req.addEventListener("error", onErrorFn, false);
@@ -168,12 +172,14 @@ if ("undefined" === typeof(GoogleTranslate)) {
 
                 // Google Translate API > JSON
                 case "api":
-                    formattedUrl = 'http://translate.google.com/translate_a/t?client=gtranslate&sl=' + langFrom + '&tl=' + langTo + '&text=' + encodeURIComponent(text);
+                    //formattedUrl = 'http://translate.google.com/translate_a/t?client=gtranslate&sl=' + langFrom + '&tl=' + langTo + '&text=' + encodeURIComponent(text);
+                    formattedUrl = 'http://dict-co.iciba.com/api/dictionary.php?w=' + encodeURIComponent(text) + '&type=json&key=0EAE08A016D6688F64AB3EBB2337BFB0';
                     break;
 
                 // Google Translate page
                 case "page":
-                    formattedUrl = 'http://translate.google.com/#' + langFrom + '%7C' + langTo + '%7C' + encodeURIComponent(text);
+                    //formattedUrl = 'http://translate.google.com/#' + langFrom + '%7C' + langTo + '%7C' + encodeURIComponent(text);
+                    formattedUrl = 'http://www.iciba.com/' + encodeURIComponent(text);
                     break;
             }
 

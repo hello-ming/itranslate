@@ -36,6 +36,13 @@ Components.utils.import("resource://gtranslate/GoogleTranslate.js");
         elements["gtranslate_separator"] = document.getElementById("gtranslate_separator");
         elements["gtranslate_main"] = document.getElementById("gtranslate_main");
         elements["gtranslate_result"] = document.getElementById("gtranslate_result");
+        elements["gtranslate_result_more"] = document.getElementById("gtranslate_result_more");
+        elements["gtranslate_result1"] = document.getElementById("gtranslate_result1");
+        elements["gtranslate_result2"] = document.getElementById("gtranslate_result2");
+        elements["gtranslate_result3"] = document.getElementById("gtranslate_result3");
+        elements["gtranslate_result4"] = document.getElementById("gtranslate_result4");
+        elements["gtranslate_result5"] = document.getElementById("gtranslate_result5");
+        elements["gtranslate_result6"] = document.getElementById("gtranslate_result6");
         elements["gtranslate_replace"] = document.getElementById("gtranslate_replace");
         elements["gtranslate_langpair_separator"] = document.getElementById("gtranslate_langpair_separator");
         elements["gtranslate_langpair_main"] = document.getElementById("gtranslate_langpair_main");
@@ -74,6 +81,13 @@ Components.utils.import("resource://gtranslate/GoogleTranslate.js");
 
         elements["gtranslate_replace"].setAttribute('hidden', true);
         elements["gtranslate_result"].setAttribute('disabled', true);
+        elements["gtranslate_result1"].setAttribute('hidden', true);
+        elements["gtranslate_result2"].setAttribute('hidden', true);
+        elements["gtranslate_result3"].setAttribute('hidden', true);
+        elements["gtranslate_result4"].setAttribute('hidden', true);
+        elements["gtranslate_result5"].setAttribute('hidden', true);
+        elements["gtranslate_result6"].setAttribute('hidden', true);
+        elements["gtranslate_result_more"].setAttribute('hidden', true);
 
         curDetectedLang = "";
 
@@ -142,18 +156,25 @@ Components.utils.import("resource://gtranslate/GoogleTranslate.js");
 
         lastSelection = selection;
 
-        curTranslation = result;
 
-        if (curTranslation == "") {
+        if (result.length == 0 || result[0] == "") {
             var noTrans = elements["gtranslate_strings"].getString("NoTranslation");
             elements["gtranslate_result"].setAttribute('label', noTrans + ' "' + selection.replace(/\s+/g," ") + '"');
             elements["gtranslate_result"].setAttribute('tooltiptext', null);
 
         } else {
+            curTranslation = result[0];
             elements["gtranslate_result"].setAttribute('label', curTranslation.replace(/\s+/g," "));
             elements["gtranslate_result"].setAttribute('tooltiptext', curTranslation);
             elements["gtranslate_result"].setAttribute('disabled', false);
             elements["gtranslate_replace"].setAttribute('disabled', false);
+            if(result.length > 1){
+                elements["gtranslate_result_more"].setAttribute('hidden', false);               
+                for(var i=1;i<result.length && i<6;i++){
+                    elements["gtranslate_result"+i].setAttribute('hidden', false);               
+                    elements["gtranslate_result"+i].setAttribute('label', result[i]);               
+                }
+            }
         }
 
         selection = '';

@@ -16,10 +16,20 @@
 	<!-- Right click menu -->
 	<menu id="gtranslate_main" label="&translate.menuitem.label;" class="menu-iconic" image="chrome://googtrans/skin/menuitem.png">
 		<menupopup id="gtranslate_popup">
-			<menuitem id="gtranslate_result" label="" disabled="" />
+			<menuitem id="gtranslate_result" label="" disabled=""/>
+            <menu id="gtranslate_result_more" label="more" hidden="true">
+                <menupopup>
+                    <menuitem id="gtranslate_result1" label="" hidden="true" />
+                    <menuitem id="gtranslate_result2" label="" hidden="true" />
+                    <menuitem id="gtranslate_result3" label="" hidden="true" />
+                    <menuitem id="gtranslate_result4" label="" hidden="true" />
+                    <menuitem id="gtranslate_result5" label="" hidden="true" />
+                    <menuitem id="gtranslate_result6" label="" hidden="true" />
+                </menupopup>
+            </menu>
 			<menuitem id="gtranslate_replace" label="&replace.with.translation.label;" />
 			<menuseparator id="gtranslate_langpair_separator"/>
-			<menu id="gtranslate_langpair_main" label="">
+			<menu id="gtranslate_langpair_main" label="" hidden="true">
 				<menupopup id="gtranslate_langpair_popup">
 					<menuitem disabled="true" label="&translatefrom.menu.label;" />
 					<menuseparator />
