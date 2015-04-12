@@ -2,9 +2,13 @@ iTranslate
 ==========
 
 iTranlate is forked from gTranslate.
+
 iTranlate is for chinese people.
+
 iTranlate doesn't support change lanaguage 'from' or 'to'. Default is english to chinese
+
 iTranlate add a more menu, which may display more translate result
+
 iTranlate uses iciba as translate server insdead of google, which is not available in china.
 
 
