@@ -11,7 +11,7 @@ endif
 xpi:
 	mkdir -p $(TOPSRCDIR)/build && \
 	cd $(TOPSRCDIR)/src && \
-	zip -r $(TOPSRCDIR)/build/gtranslate.xpi chrome chrome.manifest defaults icon.png install.rdf && \
+	zip -r $(TOPSRCDIR)/build/itranslate.xpi chrome chrome.manifest defaults icon.png install.rdf && \
 	cd $(TOPSRCDIR)
 
 test:
