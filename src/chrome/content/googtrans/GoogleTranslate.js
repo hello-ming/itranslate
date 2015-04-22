@@ -173,7 +173,7 @@ if ("undefined" === typeof(GoogleTranslate)) {
                 // Google Translate API > JSON
                 case "api":
                     //formattedUrl = 'http://translate.google.com/translate_a/t?client=gtranslate&sl=' + langFrom + '&tl=' + langTo + '&text=' + encodeURIComponent(text);
-                    formattedUrl = 'http://dict-co.iciba.com/api/dictionary.php?w=' + encodeURIComponent(text) + '&type=json&key=0EAE08A016D6688F64AB3EBB2337BFB0';
+                    formattedUrl = 'http://dict-co.iciba.com/api/dictionary.php?w=' + encodeURIComponent(text.toLowerCase()) + '&type=json&key=0EAE08A016D6688F64AB3EBB2337BFB0';
                     break;
 
                 // Google Translate page
